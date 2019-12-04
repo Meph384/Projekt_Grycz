@@ -1,0 +1,75 @@
+#ob1 {
+    clip-path: polygon(0 0, 100% 0, 55% 100%, 0 100%);
+
+    background: url(img/keyboard_bg_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    left: 10%;
+    position: relative;
+    float: left;
+}
+
+#ob2 {
+    position: relative;
+    clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+    left: -10%;
+    background: url(img/shop_bg_1920.jpg);
+    background-size: cover;
+    
+    text-align: right;
+    float: right;
+}
+
+.picture {
+	overflow: hidden;
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	color: white;
+
+
+    transition: filter 0.18s, color 0.18s;
+}
+
+.picture:hover {
+	filter: saturate(40%) brightness(160%);
+	color: rgb(4, 77, 95);
+	
+}
+
+.text {
+	font-family: 'Oswald', sans-serif;
+	text-shadow: 2px 2px 3px #000000;
+	font-weight: bold;
+	font-size: 7.5vw;
+	margin-left: 5%;
+	margin-right: 5%;
+	line-height: 1.2;
+}
+
+#t1 {
+	top: 5%;
+	position: relative;
+}
+
+#t2 {
+	bottom: 5%;
+	right: 2%;
+	position: absolute;
+}
+
+
+.middle {
+	width: 130%;
+	top: 0; bottom: 0;
+	left: -15%;
+	position: absolute;
+}
+
+body {
+	overflow: hidden;
+    margin: 0;
+    background-color:  rgb(18, 30, 39);
+
+}
+
