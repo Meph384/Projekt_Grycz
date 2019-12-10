@@ -55,10 +55,10 @@ if (isset($_POST['login_user'])) {
     $password = mysqli_real_escape_string($db, $_POST['psw']);
   
     if (empty($username)) {
-        array_push($errors, "Username is required");
+        array_push($errors, "Podaj nazwę użytkownika");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "Podaj hasło");
     }
   
     if (count($errors) == 0) {
@@ -68,12 +68,11 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          header('location: panelKup.php');
+          header('location: panelAdmin.php');
         }else {
-            array_push($errors, "Wrong username/password combination");
+            array_push($errors, "Zła nazwa użytkownika / hasło");
         }
     }
   }
   
-  ?>
-?>      
+?>
