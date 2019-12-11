@@ -1,34 +1,43 @@
-<?php include('reglog.php') ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <?php
+            error_reporting(0);
+            include 'connection.php';
+            $name = $_POST['user'];            
+
+            $sql = "DELETE FROM users WHERE id = $name";
+
+            if ($_POST['submit']){
+                if(mysqli_query($conn, $sql)) {
+                    echo "Użytkownik został usunięty";
+                    header('location: panelAdmin.php');
+                } else {
+                    echo "Coś poszło nie tak";
+                }
+            }
+        ?>
+
         <!-- Required meta tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="login.css">
-        <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald&amp;subset=latin-ext" rel="stylesheet">
 
         <title>Strona powitalna sklepu</title>
     </head>
     <body>
-    <form class="modal-content animate" action="./login.php" method="post">
-        <?php include('errors.php'); ?>
-        <div class="container">
-            <label for="uname"><b>Nazwa Użytkownika</b></label>
-            <input type="text" placeholder="Podaj nazwe użytkownika" name="uname" required>
+    <form class="modal-content animate" action="./delete.php" method="post">
+                <div class="container"> 
+                    <label><b>ID Użytkownika</b></label>
+                    <input type="text" placeholder="Podaj ID użytkownika" name="user" required>
 
-            <label for="psw"><b>Hasło</b></label>
-            <input type="password" placeholder="Podaj hasło" name="psw" required>
-                    
-            <button type="submit" name="login_user">Zaloguj się</button>
-            <button class="cancelbtn" type="submit"onClick="parent.location='landingPage.html'">Wróć</button>
-        </div>
-    </form>
-        
+                    <input type="submit" name="submit" value="Usuń użytkownika">
+
+                </div>
+        </form>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
